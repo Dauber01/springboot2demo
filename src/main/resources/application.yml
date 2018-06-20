@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      database: limai_hrm
+      host: 139.129.206.96
