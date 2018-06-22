@@ -1,6 +1,6 @@
 package com.example.springboot2demo.repository;
 
-import com.example.springboot2demo.document.User;
+import com.example.springboot2demo.model.User;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 

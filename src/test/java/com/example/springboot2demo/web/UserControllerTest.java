@@ -1,11 +1,9 @@
 package com.example.springboot2demo.web;
 
-import com.example.springboot2demo.document.User;
+import com.example.springboot2demo.model.User;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import static org.junit.Assert.*;
 
 public class UserControllerTest {
 

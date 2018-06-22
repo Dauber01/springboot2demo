@@ -1,4 +1,4 @@
-package com.example.springboot2demo.document;
+package com.example.springboot2demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
