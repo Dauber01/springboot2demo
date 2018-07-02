@@ -3,8 +3,11 @@ package com.example.springboot2demo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author Lucifer
@@ -18,8 +21,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MyEvent {
 
     @Id
+    @Range(min = 2, max = 10)
     private Long id;
 
+    @NotBlank
     private String message;
 
 }

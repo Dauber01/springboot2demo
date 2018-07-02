@@ -4,7 +4,10 @@ import com.example.springboot2demo.handler.TimeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.*;
+
+import java.awt.*;
 
 /**
  * bean配置
@@ -26,6 +29,14 @@ public class RouterConfig {
         return RouterFunctions.route(RequestPredicates.GET("/getTime"), serverRequest -> timeHandler.getTime(serverRequest))
                 .andRoute(RequestPredicates.GET("/getDate"), timeHandler::getDate)
                 .andRoute(RequestPredicates.GET("/times"), timeHandler::sendTimePerSec);
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> myEventRouter(TimeHandler timeHandler){
+        return RouterFunctions.nest(RequestPredicates.path("/user"),
+                RouterFunctions.route(RequestPredicates.POST("/")
+                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON_UTF8)), timeHandler::createMyEvent))
+                .andRoute(RequestPredicates.DELETE("/{id}"), timeHandler::deleteMyEvent);
     }
 
 }
