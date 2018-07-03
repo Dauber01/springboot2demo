@@ -35,7 +35,7 @@ public class RouterConfig {
     public RouterFunction<ServerResponse> myEventRouter(TimeHandler timeHandler){
         return RouterFunctions.nest(RequestPredicates.path("/user"),
                 RouterFunctions.route(RequestPredicates.POST("/")
-                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON_UTF8)), timeHandler::createMyEvent))
+                        .and(RequestPredicates.accept(MediaType.APPLICATION_STREAM_JSON)), timeHandler::createMyEvent))
                 .andRoute(RequestPredicates.DELETE("/{id}"), timeHandler::deleteMyEvent);
     }
 
